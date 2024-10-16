@@ -337,7 +337,7 @@ class PyramidDiTForVideoGeneration:
         if self.sequential_offload_enabled and not cpu_offloading:
             print("Warning: overriding cpu_offloading set to false, as it's needed for sequential cpu offload")
             cpu_offloading=True
-        device = torch.device("cuda") if torch.cuda.is_available() else torch.device("mps") if torch.mps.is_available() else torch.device("cpu")
+        device = self.device
         dtype = self.dtype
         if cpu_offloading:
             # skip caring about the text encoder here as its about to be used anyways.
@@ -557,7 +557,7 @@ class PyramidDiTForVideoGeneration:
         if self.sequential_offload_enabled and not cpu_offloading:
             print("Warning: overriding cpu_offloading set to false, as it's needed for sequential cpu offload")
             cpu_offloading=True
-        device = torch.device("cuda") if torch.cuda.is_available() else torch.device("mps") if torch.mps.is_available() else torch.device("cpu")
+        device = self.device
         dtype = self.dtype
         if cpu_offloading:
             # skip caring about the text encoder here as its about to be used anyways.
