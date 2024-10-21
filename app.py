@@ -90,7 +90,7 @@ def initialize_model(variant):
 
     if model_dtype == "bf16":
         torch_dtype_selected = torch.bfloat16
-    if model_dtype == "fp16":
+    elif model_dtype == "fp16":
         torch_dtype_selected = torch.float16
     else:
         torch_dtype_selected = torch.float32
