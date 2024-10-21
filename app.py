@@ -180,7 +180,7 @@ def generate_text_to_video(prompt, temp, guidance_scale, video_guidance_scale, r
 
     try:
         print("[INFO] Starting text-to-video generation...")
-        with torch.no_grad(), torch.autocast('cuda', enabled=torch.cuda.is_available(), dtype=torch_dtype_selected):
+        with torch.no_grad(), torch.autocast(model.device.type, dtype=torch_dtype_selected):
             frames = model.generate(
                 prompt=prompt,
                 num_inference_steps=[20, 20, 20],
@@ -236,7 +236,7 @@ def generate_image_to_video(image, prompt, temp, video_guidance_scale, resolutio
 
     try:
         print("[INFO] Starting image-to-video generation...")
-        with torch.no_grad(), torch.autocast('cuda', enabled=torch.cuda.is_available(), dtype=torch_dtype_selected):
+        with torch.no_grad(), torch.autocast(model.device.type, dtype=torch_dtype_selected):
             frames = model.generate_i2v(
                 prompt=prompt,
                 input_image=image,
