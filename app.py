@@ -20,7 +20,7 @@ model_cache_lock = threading.Lock()
 
 # Configuration
 model_repo = "rain1011/pyramid-flow-sd3"  # Replace with the actual model repository on Hugging Face
-model_dtype = "bf16" if torch.cuda.is_available() else "fp32"  # Support bf16 and fp32
+model_dtype = "bf16" # Support bf16 and fp32
 
 variants = {
     'high': 'diffusion_transformer_768p',  # For high-resolution version
